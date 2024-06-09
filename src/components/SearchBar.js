@@ -1,8 +1,7 @@
 // src/components/SearchBar.js
 import React, { useState, useEffect, useRef } from 'react';
 import SearchResults from './SearchResults';
-import { postFiles } from '../data/posts';
-import { loadPosts } from '../utils';
+import { loadPostFiles, loadPosts } from '../utils';
 
 function SearchBar({ setSearchTerm }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -13,8 +12,13 @@ function SearchBar({ setSearchTerm }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const loadedPosts = await loadPosts(postFiles);
-      setPosts(loadedPosts);
+      try {
+        const postFiles = await loadPostFiles();
+        const loadedPosts = await loadPosts(postFiles);
+        setPosts(loadedPosts);
+      } catch (error) {
+        console.error('Failed to load posts', error);
+      }
     };
     fetchData();
   }, []);
@@ -26,7 +30,7 @@ function SearchBar({ setSearchTerm }) {
 
     if (term.length > 0) {
       const results = posts.filter(post =>
-        post.title.toLowerCase().includes(term.toLowerCase()) ||
+        post.id.toLowerCase().includes(term.toLowerCase()) ||
         post.content.toLowerCase().includes(term.toLowerCase())
       );
       setSearchResults(results);
