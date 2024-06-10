@@ -1,5 +1,5 @@
-const GITHUB_API_URL = 'https://api.github.com/repos/woo972/personal-knowledge/contents';
-const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/woo972/personal-knowledge/main';
+const GITHUB_API_URL = 'https://api.github.com/repos/woo972/personal-knowledge/contents/posts';
+const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/woo972/personal-knowledge/main/posts';
 
 
 export const loadPostFiles = async () => {
