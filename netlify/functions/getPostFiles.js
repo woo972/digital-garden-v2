@@ -3,9 +3,10 @@ const path = require('path');
 
 exports.handler = async function(event, context) {
   const postsDir = path.join(__dirname, '../../public/posts');
-
+  console.log('postsDir: '+postsDir);
   try {
     const files = fs.readdirSync(postsDir);
+    console.log('files: '+files);
     const markdownFiles = files.filter(file => path.extname(file) === '.md').map(file => path.basename(file, '.md'));
     console.log('markdonw files: '+markdownFiles);
     return {

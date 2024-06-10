@@ -9,8 +9,11 @@ function Home({ searchTerm }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log('1');
         const postFiles = await loadPostFiles();
+        console.log('2:'+postFiles);
         const loadedPosts = await loadPosts(postFiles);
+        console.log('3:'+loadedPosts);
         setPosts(loadedPosts);
       } catch (error) {
         console.error('Failed to load posts', error);
