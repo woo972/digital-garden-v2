@@ -16,6 +16,7 @@ exports.handler = async function(event, context) {
       body: JSON.stringify(markdownFiles)
     };
   } catch (err) {
+    console.log(err);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed to list files' })
