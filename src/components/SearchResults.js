@@ -8,8 +8,8 @@ function SearchResults({ results, onResultClick }) {
       {results.map(result => (
         <Link key={result.id} to={`/post/${result.id}`} onClick={onResultClick}>
           <div className="p-2 hover:bg-gray-100">
-            <h2 className="text-xl font-bold">{result.id}</h2>
-            <p className="text-gray-600">{result.summary}</p>
+            <h2 className="text-lg font-medium">{result.id}</h2> 
+            <p className="text-sm text-gray-600">{result.summary}</p>
           </div>
         </Link>
       ))}
