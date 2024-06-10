@@ -4,17 +4,13 @@ import { Link } from 'react-router-dom';
 
 function SearchResults({ results, onResultClick }) {
   return (
-    <div className="absolute bg-white border rounded shadow-lg mt-1 w-full z-10">
-      <p className="p-2 text-sm text-gray-500 border-b">FROM THIS PROFILE</p>
+    <div className="absolute bg-white border rounded w-full mt-1">
       {results.map(result => (
-        <Link
-          to={`/post/${result.id}`}
-          key={result.id}
-          className="block p-2 hover:bg-gray-100"
-          onClick={onResultClick}
-        >
-          <p className="font-semibold">{result.title}</p>
-          <p className="text-sm text-gray-500">{new Date(result.date).toDateString()}</p>
+        <Link key={result.id} to={`/post/${result.id}`} onClick={onResultClick}>
+          <div className="p-2 hover:bg-gray-100">
+            <h2 className="text-xl font-bold">{result.id}</h2>
+            <p className="text-gray-600">{result.summary}</p>
+          </div>
         </Link>
       ))}
     </div>
