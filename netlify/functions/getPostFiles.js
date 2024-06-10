@@ -7,7 +7,7 @@ exports.handler = async function(event, context) {
   try {
     const files = fs.readdirSync(postsDir);
     const markdownFiles = files.filter(file => path.extname(file) === '.md').map(file => path.basename(file, '.md'));
-
+    console.log('markdonw files: '+markdownFiles);
     return {
       statusCode: 200,
       body: JSON.stringify(markdownFiles)

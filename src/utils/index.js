@@ -1,9 +1,10 @@
 export const loadPostFiles = async () => {
-  const response = await fetch('/.netlify/functions/getPostFiles');
+  const response = await fetch('/netlify/functions/getPostFiles');
   if (!response.ok) {
     throw new Error('Failed to fetch post files');
   }
   const postFiles = await response.json();
+  console.log('parsed post files: '+postFiles);
   return postFiles;
 };
 
