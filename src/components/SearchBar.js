@@ -29,9 +29,10 @@ function SearchBar({ setSearchTerm }) {
     setSearchTerm(term);
 
     if (term.length > 0) {
-      const results = posts.filter(post =>
-        post.id.toLowerCase().includes(term.toLowerCase()) ||
-        post.content.toLowerCase().includes(term.toLowerCase())
+      const results = posts.filter(
+        (post) =>
+          post.id.toLowerCase().includes(term.toLowerCase()) ||
+          post.content.toLowerCase().includes(term.toLowerCase())
       );
       setSearchResults(results);
       setIsSearchActive(true);

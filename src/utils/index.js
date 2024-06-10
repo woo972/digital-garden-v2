@@ -28,7 +28,11 @@ export const loadPosts = async (postFiles) => {
         throw new Error(`Failed to fetch ${filename}`);
       }
       const content = await response.text();
-      return { id: filename.replace('.md', ''), content };
+
+      // 첫 3줄을 summary로 사용
+      const summary = content.split('\n').slice(0, 3).join(' ');
+
+      return { id: filename.replace('.md', ''), content, summary };
     })
   );
 

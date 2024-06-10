@@ -9,11 +9,8 @@ function Home({ searchTerm }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('1');
         const postFiles = await loadPostFiles();
-        console.log('2:'+postFiles);
         const loadedPosts = await loadPosts(postFiles);
-        console.log('3:'+loadedPosts);
         setPosts(loadedPosts);
       } catch (error) {
         console.error('Failed to load posts', error);
@@ -22,7 +19,6 @@ function Home({ searchTerm }) {
     fetchData();
   }, []);
 
-  // 검색어에 따라 필터링된 포스트 목록 생성
   const filteredPosts = searchTerm.length > 0
     ? posts.filter(post =>
         post.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
