@@ -4,6 +4,8 @@ const path = require('path');
 exports.handler = async function(event, context) {
   const postsDir = path.join(__dirname, '../../public/posts');
   console.log('postsDir: '+postsDir);
+  console.log('fs: '+fs);
+  console.log('path: '+path);
   try {
     const files = fs.readdirSync(postsDir);
     console.log('files: '+files);
