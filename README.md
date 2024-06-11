@@ -1,5 +1,6 @@
 ## 블로그 주소
 https://sk-digital-garden.netlify.app
+https://sk-digital-garden-old.netlify.app/ (OLD version)
 
 ## 환경
 - React
